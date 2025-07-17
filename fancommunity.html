@@ -1,0 +1,199 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>James Blunt | Fan Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #fffaf4;
+      --accent: #2d3e50;
+      --text: #1c1c1c;
+      --soft: #fff9f1;
+      --border: #e5d3bb;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    nav {
+      background: var(--accent);
+      padding: 12px 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.05em;
+    }
+    header {
+      background: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+    header h1 { font-size: 2.4em; margin-bottom: 10px; }
+    header p { font-size: 1.1em; }
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    @keyframes spinDiamond {
+      0% { transform: rotate(45deg); }
+      100% { transform: rotate(405deg); }
+    }
+    .diamond-box {
+      width: 160px;
+      height: 160px;
+      background: var(--accent);
+      transform: rotate(45deg);
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.6em;
+      font-weight: bold;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: spinDiamond 6s linear infinite;
+    }
+    .diamond-box:hover {
+      animation-play-state: paused;
+    }
+    .diamond-box span { transform: rotate(-45deg); }
+    .join-btn {
+      display: block;
+      margin: 20px auto;
+      background: var(--accent);
+      color: white;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .contact-links {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .contact-links i {
+      font-size: 1.8em;
+      margin: 0 10px;
+      color: var(--accent);
+      cursor: pointer;
+    }
+    .comment-box {
+      margin-top: 40px;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .comment-box input, .comment-box textarea {
+      width: 100%; padding: 10px; margin-bottom: 10px;
+      border-radius: 6px; border: 1px solid #ccc;
+    }
+    .comment-box button {
+      background: #ccc; color: white;
+      border: none; padding: 10px 20px;
+      border-radius: 6px; cursor: not-allowed;
+    }
+    .comments-section h2 {
+      text-align: center; margin: 40px 0 20px;
+      font-size: 1.6em; color: var(--accent);
+    }
+    .comment {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .comment p { font-size: 1em; margin-bottom: 5px; }
+    .comment small { color: #666; font-size: 0.9em; }
+    footer {
+      background: var(--accent); color: white; text-align: center; padding: 40px 20px; margin-top: 60px;
+    }
+    .socials a { color: white; margin: 0 10px; font-size: 1.4em; }
+  </style>
+</head>
+<body>
+  <nav><a href="index.html">← Back to Home</a></nav>
+
+  <header>
+    <h1>James Blunt Fan Community</h1>
+    <p>Welcome to the official space for real fans around the world.</p>
+  </header>
+
+  <section class="section">
+    <div class="diamond-box"><span>34,000+</span></div>
+    <p style="text-align:center; font-size:1.1em; margin-top:-10px;">Verified Members Worldwide</p>
+
+    <button class="join-btn" onclick="showJoinOptions()">Join Community - £130</button>
+
+    <div class="contact-links" id="contactLinks">
+      <p>Send your request via:</p>
+
+      <!-- WhatsApp contact -->
+      <a href="https://wa.me/447397939162?text=Hi%2C%20I%27m%20interested%20in%20joining%20the%20James%20Blunt%20Fan%20Club" 
+        target="_blank" 
+        style="margin-right: 15px; font-size: 1.4em; color: #fdfefd;">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+
+      <!-- Email contact -->
+      <a href="mailto:jamesbluntfanclubcontact@gmail.com?subject=Fan Club Membership Request" 
+        target="_blank" 
+        style="font-size: 1.4em; color: #8b4513;">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+
+
+    <div class="comment-box">
+      <h3>Leave a Comment (Members Only)</h3>
+      <input type="email" placeholder="Your email (only for members)" disabled />
+      <textarea rows="3" placeholder="You must be a verified member to comment..." disabled></textarea>
+      <button disabled>Submit Comment</button>
+    </div>
+
+    <div class="comments-section">
+      <h2>Fan Comments</h2>
+      <div id="commentList"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 James Blunt Fan Club Community</p>
+    <p>Follow James on:</p>
+    <div class="socials">
+      <a href="https://instagram.com/jamesblunt" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/jamesblunt" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://tiktok.com/@jamesblunt" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://facebook.com/jamesblunt" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.jamesblunt.com" target="_blank"><i class="fas fa-globe"></i></a>
+    </div>
+  </footer>
+
+  <script src="comments.js"></script>
+  <script>
+    function showJoinOptions() {
+      document.getElementById('contactLinks').style.display = 'block';
+    }
+
+    fanComments.forEach(({ email, comment }) => {
+      const div = document.createElement("div");
+      div.className = "comment";
+      div.innerHTML = `<p>${comment}</p><small>${email}</small>`;
+      document.getElementById("commentList").appendChild(div);
+    });
+  </script>
+</body>
+</html>

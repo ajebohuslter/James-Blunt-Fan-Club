@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Membership | James Blunt Fan Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+  <style>
+    :root {
+      --deep-gold: #2d3e50;
+      --rich-brown:  #1c1c1c;
+      --cream-bg: #faf6f1;
+      --white: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--cream-bg);
+      color: var(--rich-brown);
+    }
+
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--rich-brown);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8em;
+    }
+
+    nav {
+      background: var(--deep-gold);
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--rich-brown);
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero-section {
+      position: relative;
+      height: 55vh;
+      overflow: hidden;
+    }
+
+    .hero-blur {
+      background: url('james.jpeg') no-repeat center center/cover;
+      filter: blur(10px);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transform: scale(1.1);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    h2.section-title {
+      text-align: center;
+      font-size: 1.9em;
+      margin: 40px 0 20px;
+      color: var(--deep-gold);
+    }
+
+    .membership-container {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .tier {
+      background: var(--white);
+      border: 1px solid var(--deep-gold);
+      border-radius: 14px;
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: 0 12px 30px var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .tier:hover {
+      transform: translateY(-6px);
+    }
+
+    .tier h3 {
+      font-size: 1.4em;
+      color: var(--rich-brown);
+      margin-bottom: 12px;
+    }
+
+    .tier p {
+      font-size: 0.95em;
+      margin-bottom: 16px;
+    }
+
+    .tier .price {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: var(--deep-gold);
+      margin: 12px 0;
+    }
+
+    .tier button {
+      background: var(--rich-brown);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.95em;
+      cursor: pointer;
+    }
+
+    .tier button:hover {
+      background: #2b1407;
+    }
+
+    .form-popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    .form-box {
+      background: white;
+      padding: 30px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 10px;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    .form-box h3 {
+      margin-bottom: 15px;
+      color: var(--rich-brown);
+      font-size: 1.5em;
+    }
+
+    .form-box label {
+      display: block;
+      margin-top: 15px;
+      font-size: 0.95em;
+    }
+
+    .form-box input,
+    .form-box textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+
+    .form-box button {
+      margin-top: 20px;
+      background: var(--deep-gold);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .form-box .close-btn {
+      background: #aaa;
+      float: right;
+      margin-top: -10px;
+      margin-right: -10px;
+    }
+
+    #submissionLinks {
+      margin-top: 25px;
+      padding-top: 10px;
+      border-top: 1px dashed #bbb;
+      font-size: 0.95em;
+    }
+
+    footer {
+      background: var(--rich-brown);
+      color: #e9e6e3;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .socials a {
+      color: #fff;
+      margin: 0 12px;
+      font-size: 1.5em;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        font-size: 1.5em;
+      }
+
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loader">Loading Membership...</div>
+
+<nav>
+  <a href="index.html">← Back to Home</a>
+</nav>
+
+<section class="hero-section">
+  <div class="hero-blur"></div>
+  <div class="hero-content">JAMES BLUNT FAN MEMBERSHIP</div>
+</section>
+
+<h2 class="section-title">Exclusive Memberships</h2>
+<section class="membership-container">
+  <div class="tier">
+    <h3>🌟 Bronze Member</h3>
+    <p>Early ticket alerts + fan community access</p>
+    <div class="price">£600 / year</div>
+    <button onclick="openForm('Bronze Member')">Join Now</button>
+  </div>
+  <div class="tier">
+    <h3>🔥 Gold Member</h3>
+    <p>Signed merch, private news & VIP forum</p>
+    <div class="price">£900 / year</div>
+    <button onclick="openForm('Gold Member')">Join Now</button>
+  </div>
+  <div class="tier">
+    <h3>👑 Platinum Member</h3>
+    <p>Includes personal greeting + yearly merch drop</p>
+    <div class="price">£1500 / year</div>
+    <button onclick="openForm('Platinum Member')">Join Now</button>
+  </div>
+</section>
+
+<h2 class="section-title">VIP Experiences</h2>
+<section class="membership-container">
+  <div class="tier">
+    <h3>🎤 VIP Backstage</h3>
+    <p>Private studio tour and signed poster</p>
+    <div class="price">£2500</div>
+    <button onclick="openForm('VIP Backstage')">Book Now</button>
+  </div>
+  <div class="tier">
+    <h3>🎶 Ultimate Fan Experience</h3>
+    <p>Dinner night and acoustic session with James</p>
+    <div class="price">£3200</div>
+    <button onclick="openForm('Ultimate Fan Experience')">Book Now</button>
+  </div>
+</section>
+
+<!-- Form Popup -->
+<div class="form-popup" id="fanForm">
+  <div class="form-box">
+    <button class="close-btn" onclick="closeForm()">✖</button>
+    <h3>Eligibility Form</h3>
+    <form id="applicationForm">
+      <input type="hidden" id="selectedOffer" />
+
+      <label>Full Name</label>
+      <input type="text" id="fullName" required />
+
+      <label>Email Address</label>
+      <input type="email" id="email" required />
+
+      <label>Phone Number</label>
+      <input type="text" id="phone" required />
+
+      <label>How long have you been a fan?</label>
+      <textarea id="fanDuration" required></textarea>
+
+      <label>Have you attended any concerts?</label>
+      <textarea id="concerts" required></textarea>
+
+      <button type="button" onclick="downloadForm()">Download & Continue</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 James Blunt Fan Club. All rights reserved.</p>
+</footer>
+
+<script>
+  window.onload = function () {
+    document.getElementById("loader").style.display = "none";
+  };
+
+  function openForm(tier) {
+    document.getElementById("fanForm").style.display = "flex";
+    document.getElementById("selectedOffer").value = tier;
+    document.getElementById("submissionLinks")?.remove();
+  }
+
+  function closeForm() {
+    document.getElementById("fanForm").style.display = "none";
+  }
+
+  function downloadForm() {
+    const offer = document.getElementById("selectedOffer").value;
+    const name = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const duration = document.getElementById("fanDuration").value;
+    const concerts = document.getElementById("concerts").value;
+
+    if (!name || !email || !phone || !duration || !concerts) {
+      alert("Please fill in all fields before continuing.");
+      return;
+    }
+
+    const content = `
+James Blunt Fan Club Application - ${offer}
+
+Full Name: ${name}
+Email: ${email}
+Phone Number: ${phone}
+Fan Since: ${duration}
+Concerts Attended: ${concerts}
+
+Please send this file via WhatsApp or email for review.
+`;
+
+    const blob = new Blob([content], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "fanclub_application.txt";
+    link.click();
+
+    showContactInfo();
+  }
+
+  function showContactInfo() {
+    const form = document.getElementById("applicationForm");
+    if (document.getElementById("submissionLinks")) return;
+
+    const div = document.createElement("div");
+    div.id = "submissionLinks";
+      div.innerHTML = `
+  <div style="text-align: center; margin-top: 30px;">
+    <p style="font-size: 1.1em; font-weight: bold; color: #1c1c1c;">Your form has been downloaded successfully!</p>
+    <p style="margin: 15px 0; font-size: 1em;">Please submit it via one of the contact options below:</p>
+
+    <div style="display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap;">
+      <a href="mailto:jamesbluntfanclubcontact@gmail.com?subject=Fan Club Form Submission" target="_blank"
+        style="display: flex; align-items: center; background-color: #f3f3f3; padding: 12px 18px; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); color: #333;">
+        <i class="fas fa-envelope" style="font-size: 1.5em; color: #8b4513; margin-right: 10px;"></i>
+        <span style="font-size: 1em;">Send via Email</span>
+      </a>
+
+      <a href="https://wa.me/447397939162?text=Hi%2C%20I%27ve%20completed%20my%20fan%20form%20and%20attached%20it%20here." target="_blank"
+        style="display: flex; align-items: center; background-color: #e8fff0; padding: 12px 18px; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); color: #1c1c1c;">
+        <i class="fab fa-whatsapp" style="font-size: 1.7em; color: #25D366; margin-right: 10px;"></i>
+        <span style="font-size: 1em;">Send via WhatsApp</span>
+      </a>
+    </div>
+
+    <p style="margin-top: 25px; font-size: 0.9em; color: #555;">
+      Once your submission is verified, we’ll contact you with payment and next steps.
+    </p>
+  </div>
+`;
+
+
+    form.appendChild(div);
+  }
+</script>
+</body>
+</html>

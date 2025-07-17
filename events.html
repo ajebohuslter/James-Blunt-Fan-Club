@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>James Blunt Events</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --cream-bg: #faf6f1;
+      --deep-gold:#1c1c1c;
+      --rich-brown: #2d3e50;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--cream-bg);
+      color: var(--rich-brown);
+      overflow-x: hidden;
+    }
+
+    nav {
+      background: var(--deep-gold);
+      text-align: center;
+      padding: 12px 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.05em;
+    }
+
+    .loader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: var(--rich-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: hideLoader 2s ease 2.5s forwards;
+    }
+
+    .loader .dot {
+      width: 20px;
+      height: 20px;
+      margin: 0 6px;
+      background: #fff;
+      border-radius: 50%;
+      animation: bounce 0.8s infinite alternate;
+    }
+
+    .loader .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loader .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-20px); }
+    }
+
+    @keyframes hideLoader {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+      background: linear-gradient(45deg, #fffefb, var(--cream-bg));
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      color: var(--rich-brown);
+    }
+
+    header p {
+      font-size: 1.05em;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .event-banner {
+      width: 160px;
+      height: 160px;
+      margin: 30px auto;
+      background: var(--deep-gold);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5em;
+      animation: rotateCircle 5s linear infinite;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @keyframes rotateCircle {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .info-box {
+      background: #ffffff;
+      padding: 30px;
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: center;
+      border-radius: 10px;
+      border: 2px dashed var(--deep-gold);
+      box-shadow: 0 0 10px rgba(0,0,0,0.06);
+    }
+
+    .info-box h2 {
+      color: var(--rich-brown);
+      margin-bottom: 10px;
+    }
+
+    .info-box p {
+      font-size: 1em;
+      color: #444;
+    }
+
+    .join-btn {
+      background: var(--deep-gold);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1em;
+      border-radius: 6px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .footer {
+      margin-top: 60px;
+      background: var(--rich-brown);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .socials a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.4em;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <nav><a href="index.html">← Back to Home</a></nav>
+
+  <header>
+    <h1>Upcoming Events</h1>
+    <p>Stay tuned for James Blunt's exclusive concerts, appearances, and fan experiences.</p>
+  </header>
+
+  <div class="event-banner">Events</div>
+
+  <div class="info-box">
+    <h2>Members Only</h2>
+    <p>Event schedules, ticket access, livestreams, and behind-the-scenes content are exclusive to verified fan club members. Please join to unlock full access!</p>
+    <button class="join-btn" onclick="window.location.href='membership.html'">Join Now</button>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 James Blunt Fan Club</p>
+    <p>Follow James:</p>
+    <div class="socials">
+      <a href="https://instagram.com/jamesblunt" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/jamesblunt" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://facebook.com/jamesblunt" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://tiktok.com/@jamesblunt" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </div>
+</body>
+</html>

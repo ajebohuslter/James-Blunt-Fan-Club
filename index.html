@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>James Blunt Fan Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    :root {
+      --primary: #2d3e50;
+      --secondary: #f9f9f9;
+      --text-dark: #1c1c1c;
+      --text-light: #ffffff;
+      --accent: #84a9ac;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--secondary);
+      color: var(--text-dark);
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hero-section {
+      position: relative;
+      height: 75vh;
+      overflow: hidden;
+    }
+
+    .hero-blur {
+      background: url('james.jpeg') no-repeat center center/cover;
+      filter: blur(8px);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transform: scale(1.1);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Georgia', serif;
+      font-size: 2.5em;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      background: var(--accent);
+      text-align: center;
+      padding: 15px 10px;
+    }
+
+    nav a {
+      color: var(--text-dark);
+      margin: 0 15px;
+      font-weight: bold;
+      text-decoration: none;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1.05em;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .features {
+      max-width: 960px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 30px;
+    }
+
+    .offer {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .offer:hover {
+      transform: translateY(-5px);
+    }
+
+    .offer h3 {
+      font-size: 1.3em;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .offer p {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 0.95em;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .offer button {
+      background: var(--primary);
+      color: var(--text-light);
+      border: none;
+      padding: 9px 15px;
+      font-size: 0.9em;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .offer button:hover {
+      background: #1b2c3a;
+    }
+
+    footer {
+      background: #1c1c1c;
+      color: #e9e6e3;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    footer h4 {
+      font-family: 'Georgia', serif;
+      color: #fdfdfd;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 0.95em;
+      max-width: 640px;
+      margin: 10px auto;
+      color: #ccc;
+    }
+
+    .socials {
+      margin-top: 25px;
+    }
+
+    .socials a {
+      color: #fff;
+      margin: 0 12px;
+      font-size: 1.5em;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        font-size: 1.6em;
+        padding: 10px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-section">
+    <div class="hero-blur"></div>
+    <div class="hero-content">JAMES BLUNT FAN CLUB</div>
+  </section>
+
+  <nav>
+    <a href="membership.html">Membership</a>
+    <a href="profile.html">Profiles</a>
+    <a href="events.html">Events</a>
+    <a href="vip.html">VIP</a>
+  </nav>
+
+  <section class="features">
+    <div class="offer">
+      <h3>Fan Membership</h3>
+      <p>Get early access to concert tickets, fan news, and official club updates.</p>
+      <button onclick="goTo('membership.html')">Join Now</button>
+    </div>
+
+    <div class="offer">
+      <h3>Fan Community</h3>
+      <p>Connect with fans across the globe and share your journey with James's music.</p>
+      <button onclick="goTo('fancommunity.html')">Explore Fans</button>
+    </div>
+  </section>
+
+  <footer>
+    <h4>About James Blunt</h4>
+    <p>James Blunt is an internationally acclaimed singer-songwriter known for his emotional ballads and unforgettable performances. Join thousands of fans worldwide and celebrate his music and story.</p>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/jamesblunt" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@jamesblunt" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.facebook.com/jamesblunt" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/JamesBlunt" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.youtube.com/user/jamesbluntmusic" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.jamesblunt.com" target="_blank"><i class="fas fa-globe"></i></a>
+    </div>
+
+    <p style="margin-top: 20px;">&copy; 2025 James Blunt Fan Club. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>
